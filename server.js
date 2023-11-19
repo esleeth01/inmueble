@@ -15,10 +15,6 @@ const httpPort = 80;
 // Configurar la carpeta 'assets' para que sea estática
 app.use('/assets', express.static(path.join(__dirname, 'assets'), { extensions: ['html'] }), express.static(path.join(__dirname, 'node_modules')));
 
-/*
-app.use('/assets', express.static(path.join(__dirname, 'assets')));
-app.use('/assets', express.static(path.join(__dirname, 'node_modules')));
-*/
 // Ruta para renderizar la vista index.ejs cuando alguien accede a '/'
 app.get('/', (req, res) => {
   // Renderizar la vista index.ejs y enviarla como respuesta
