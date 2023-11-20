@@ -1,25 +1,19 @@
-// userController.js
+// controllers/userController.js
 const db = require('../db/db');
+const bcrypt = require('bcrypt');
 
 exports.registerUser = async (req, res) => {
     try {
-        // Extrae los datos del cuerpo de la solicitud
-        const {
-            userNombres,
-            userApellido,
-            usuario,
-            correo,
-            pass
-        } = req.body;
+        const { userNombres, userApellido, usuario, correo, pass } = req.body;
 
-        // Valida que todos los campos necesarios estén presentes
-        if (!userNombres || !userApellido || !usuario || !correo || !pass) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (!userNombres || !userApellido || !usuario || !correo || !pass || !emailRegex.test(correo)) {
             return res.status(400).json({
-                error: 'Todos los campos son obligatorios'
+                error: 'Todos los campos son obligatorios y el correo debe ser válido'
             });
         }
 
-        // Verifica si el usuario ya existe en la base de datos
         const usuarioExistente = await db.getUsuarioByUsuario(usuario);
 
         if (usuarioExistente) {
@@ -28,22 +22,42 @@ exports.registerUser = async (req, res) => {
             });
         }
 
-        // Inserta el nuevo usuario en la base de datos
-        await db.insertUsuario(userNombres, userApellido, usuario, correo, pass);
+        const hashedPass = await bcrypt.hash(pass, 10);
+        await db.insertUsuario(userNombres, userApellido, usuario, correo, hashedPass);
 
-        // Responde al cliente con un mensaje de éxito
         res.json({
             message: 'Usuario registrado con éxito'
         });
     } catch (error) {
+        console.log(error);
         console.error('Error al registrar el usuario:', error);
-        // Responde con un error interno del servidor en caso de excepción
         res.status(500).json({
-            error: 'Error interno del servidor'
+            error: 'Error interno del servidor al registrar el usuario'
         });
     }
 };
 
 exports.loginUser = async (req, res) => {
-    // código existente para iniciar sesión
+    try {
+        const { usuario, contrasena } = req.body;
+
+        const usuarioRegistrado = await db.getUsuarioByUsuario(usuario);
+
+        if (usuarioRegistrado && await bcrypt.compare(contrasena, usuarioRegistrado.pass)) {
+            res.json({
+                success: true,
+                message: 'Inicio de sesión exitoso'
+            });
+        } else {
+            res.json({
+                success: false,
+                message: 'Credenciales incorrectas'
+            });
+        }
+    } catch (error) {
+        console.error('Error al iniciar sesión:', error);
+        res.status(500).json({
+            error: 'Error interno del servidor al iniciar sesión'
+        });
+    }
 };
