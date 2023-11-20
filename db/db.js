@@ -18,5 +18,5 @@ db.serialize(() => {
   });
 });
 
-// Cerrar la conexión a la base de datos al finalizar..........
+// Cerrar la conexión a la base de datos al finalizar
 db.close();
