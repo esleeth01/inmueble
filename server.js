@@ -1,6 +1,7 @@
 // Importar los módulos necesarios
 const express = require('express');
 const path = require('path');
+const Database = require('./db/db'); // Database
 
 // Crear una instancia de Express
 const app = express();
@@ -14,6 +15,9 @@ const httpPort = 80;
 
 // Configurar la carpeta 'assets' para que sea estática
 app.use('/assets', express.static(path.join(__dirname, 'assets'), { extensions: ['html'] }), express.static(path.join(__dirname, 'node_modules')));
+
+// Conecta a la base de datos
+const db = new Database('db/el_cachaco.db');
 
 // Ruta para renderizar la vista index.ejs cuando alguien accede a '/'
 app.get('/', (req, res) => {
