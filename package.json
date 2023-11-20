@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "desarrollo": "npx nodemon server.js"
+    "desarrollo": "npx nodemon server.js",
+    "reset-db": "node db/reset_db.js"
   },
   "author": "",
   "license": "ISC",
