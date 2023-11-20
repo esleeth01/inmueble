@@ -1,20 +1,12 @@
 // Importa los módulos necesarios
 const express = require('express');
 const path = require('path');
-<<<<<<< HEAD
 const Database = require('./db/db');
-=======
-const Database = require('./db/db'); // Importa la clase Database desde el módulo db
->>>>>>> e8f0dd73e4f55d0c41357e13ca040f0da3eddb18
 
 // Crea una instancia de Express
 const app = express();
 
-<<<<<<< HEAD
 // middleware para parsear JSON y datos codificados en la URL
-=======
-// Antes de las rutas, agrega middleware para parsear JSON y datos codificados en la URL
->>>>>>> e8f0dd73e4f55d0c41357e13ca040f0da3eddb18
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
