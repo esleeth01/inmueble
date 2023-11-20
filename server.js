@@ -85,6 +85,36 @@ app.post('/registrar', async (req, res) => {
   }
 });
 
+// Agregar una ruta POST para manejar el inicio de sesión
+app.post('/login', async (req, res) => {
+  try {
+    const { usuario, contrasena } = req.body;
+
+    // Consultar la base de datos para verificar las credenciales
+    const usuarioRegistrado = await db.getUsuarioByUsuario(usuario);
+
+    if (usuarioRegistrado && usuarioRegistrado.pass === contrasena) {
+      // Credenciales correctas
+      res.json({
+        success: true,
+        message: 'Inicio de sesión exitoso'
+      });
+    } else {
+      // Credenciales incorrectas
+      res.json({
+        success: false,
+        message: 'Credenciales incorrectas'
+      });
+    }
+  } catch (error) {
+    console.error('Error al iniciar sesión:', error);
+    res.status(500).json({
+      error: 'Error interno del servidor al iniciar sesión'
+    });
+  }
+});
+
+
 // Crea el servidor HTTP y escucha en el puerto especificado
 const httpServer = app.listen(httpPort, () => {
   console.log(`Servidor HTTP escuchando en http://localhost:${httpPort}`);
