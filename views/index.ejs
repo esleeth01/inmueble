@@ -2,245 +2,399 @@
 <html lang="es">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" href="https://es.seaicons.com/wp-content/uploads/2015/09/Shop-icon.png">
-  <title>.:El Cachaco:.</title>
-  <!-- css bootstrap -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link href="https://es.seaicons.com/wp-content/uploads/2015/09/Shop-icon.png" rel="icon">
+    <title>
+        .:El Cachaco:.
+    </title>
+    <!-- css bootstrap -->
+    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" rel="stylesheet">
+    </link>
+    </link>
+    </meta>
+    </meta>
 </head>
 
 <body>
-  <div class="container">
-    <!-- barra de navegacion flotante -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light border rounded fixed-top">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="/">El cachaco</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="/">Inicio</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Carrito</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-                aria-expanded="false">
-                Mi Cuenta
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="#">Mis compras</a></li>
-                <li><a class="dropdown-item" href="#">Saldo</a></li>
-                <li>
-                  <hr class="dropdown-divider">
-                </li>
-                <li><a class="dropdown-item" href="#">Editar usuario</a></li>
-                <li><a class="dropdown-item" href="/politicas">Politicas</a></li>
-              </ul>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/login">Login</a>
-            </li>
-          </ul>
-          <form class="d-flex">
-            <input class="form-control me-2" type="search" placeholder="Buscar articulo" aria-label="Buscar">
-            <button class="btn btn-outline-success" type="submit">Buscar</button>
-          </form>
-        </div>
-      </div>
-    </nav>
-    <!-- encabezado -->
-    <header class="bg-primary text-white text-center py-1 rounded" style="margin-top: 64px;">
-      <!-- carrusel de imagenes con un intervalo de 5 segundos -->
-      <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
-        <div class="carousel-indicators">
-          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"
-            aria-current="true" aria-label="Slide 1"></button>
-          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1"
-            aria-label="Slide 2"></button>
-          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2"
-            aria-label="Slide 3"></button>
-        </div>
-        <div class="carousel-inner">
-          <div class="carousel-item active" data-bs-interval="5000">
-            <img src="https://http2.mlstatic.com/D_NQ_NP_899415-MLA71582682770_092023-OO.webp" class="d-block w-100"
-              alt="...">
-          </div>
-          <div class="carousel-item" data-bs-interval="5000">
-            <img src="https://http2.mlstatic.com/D_NQ_NP_658398-MLA71631217220_092023-OO.webp" class="d-block w-100"
-              alt="...">
-          </div>
-          <div class="carousel-item" data-bs-interval="5000">
-            <img src="https://http2.mlstatic.com/D_NQ_NP_776953-MLA71394576712_082023-OO.webp" class="d-block w-100"
-              alt="...">
-          </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>
-    </header>
-    <!-- listado de productos utilizando row y col -->
-    <section id="productos" class="bg-light border mt-1 rounded">
-      <div class="container">
-        <h2 class="text-center">Nuestros Productos</h2>
-        <!-- Aquí se agregar información de los productos, utilizando el sistema de cuadrícula de Bootstrap o tarjetas -->
-        <div class="row">
-          <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 p-1">
-            <div class="card shadow">
-              <div class="text-center">
-                <img src="https://http2.mlstatic.com/D_Q_NP_848157-MLA46509924670_062021-P.webp"
-                  class="card-img-top text-center" style="width: 75%;">
-              </div>
-              <div class="card-body p-1">
-                <h5 class="card-title">$ 699.900 <a class="text-success h6">26% OFF</a></h5>
-                <p class="card-text">Parlante Jbl Bluetooth Charge 5 Color Red 110V/220V</p>
-                <div class="btn-group" role="group">
-                  <a href="#" class="btn btn-outline-primary p-1">+ carrito</a>
-                  <a href="#" class="btn btn-outline-primary p-1">Comprar</a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 p-1">
-            <div class="card shadow">
-              <div class="text-center">
-                <img src="https://http2.mlstatic.com/D_Q_NP_707988-MLU69759752465_062023-P.webp"
-                  class="card-img-top text-center" style="width: 75%;">
-              </div>
-              <div class="card-body p-1">
-                <h5 class="card-title">$ 400.000</h5>
-                <p class="card-text">Audífonos Inalámbricos Con Noise Cancelling Wf-c700n Color Negro</p>
-                <div class="btn-group" role="group">
-                  <a href="#" class="btn btn-outline-primary p-1">+ carrito</a>
-                  <a href="#" class="btn btn-outline-primary p-1">Comprar</a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 p-1">
-            <div class="card shadow h-2">
-              <div class="text-center">
-                <img src="https://http2.mlstatic.com/D_Q_NP_809326-MLA46115014340_052021-P.webp"
-                  class="card-img-top text-center" style="width: 75%;">
-              </div>
-              <div class="card-body p-1">
-                <h5 class="card-title">$ 2.414.575 <a class="text-success h6">Envio gratis</a></h5>
-                <p class="card-text">Apple iPhone 11 (128 GB) - Blanco Super decuento</p>
-                <div class="btn-group" role="group">
-                  <a href="#" class="btn btn-outline-primary p-1">+ carrito</a>
-                  <a href="#" class="btn btn-outline-primary p-1">Comprar</a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 p-1">
-            <div class="card shadow">
-              <div class="text-center">
-                <img src="https://http2.mlstatic.com/D_Q_NP_854146-MLA45739010462_042021-P.webp"
-                  class="card-img-top text-center" style="width: 75%;">
-              </div>
-              <div class="card-body p-1">
-                <h5 class="card-title">$ 285.000 <a class="text-success h6">Envio gratis</a></h5>
-                <p class="card-text">Amazon Echo Dot Echo Dot 4th Gen with clock con asistente virtual Alexa</p>
-                <div class="btn-group" role="group">
-                  <a href="#" class="btn btn-outline-primary p-1">+ carrito</a>
-                  <a href="#" class="btn btn-outline-primary p-1">Comprar</a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 p-1">
-            <div class="card shadow">
-              <div class="text-center">
-                <img src="https://http2.mlstatic.com/D_Q_NP_772995-MCO52821182277_122022-P.webp"
-                  class="card-img-top text-center" style="width: 75%;">
-              </div>
-              <div class="card-body p-1">
-                <h5 class="card-title">$ 107.900 <a class="text-success h6">25% OFF</a></h5>
-                <p class="card-text">Kit De Pesas Ejercicio Mancuernas Juego De Pesas Termoforrad</p>
-                <div class="btn-group" role="group">
-                  <a href="#" class="btn btn-outline-primary p-1">+ carrito</a>
-                  <a href="#" class="btn btn-outline-primary p-1">Comprar</a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 p-1">
-            <div class="card shadow">
-              <div class="text-center">
-                <img src="https://http2.mlstatic.com/D_Q_NP_894189-MCO53102272124_122022-P.webp"
-                  class="card-img-top text-center" style="width: 75%;">
-              </div>
-              <div class="card-body p-1">
-                <h5 class="card-title">$ 399.900 <a class="text-success h6">17% OFF</a></h5>
-                <p class="card-text">Freidora De Aire Osterde 6.8 L Ckstaf68t</p>
-                <div class="btn-group" role="group">
-                  <a href="#" class="btn btn-outline-primary p-1">+ carrito</a>
-                  <a href="#" class="btn btn-outline-primary p-1">Comprar</a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 p-1">
-            <div class="card shadow">
-              <div class="text-center">
-                <img src="https://http2.mlstatic.com/D_Q_NP_840701-MCO70216300783_062023-P.webp"
-                  class="card-img-top text-center" style="width: 75%;">
-              </div>
-              <div class="card-body p-1">
-                <h5 class="card-title">$ 189.900 <a class="text-success h6">46% OFF</a></h5>
-                <p class="card-text">Escritorio ¡wow!, Blanco Duqueza 120x120x45</p>
-                <div class="btn-group" role="group">
-                  <a href="#" class="btn btn-outline-primary p-1">+ carrito</a>
-                  <a href="#" class="btn btn-outline-primary p-1">Comprar</a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 p-1">
-            <div class="card shadow">
-              <div class="text-center">
-                <img src="https://http2.mlstatic.com/D_Q_NP_650510-MLA48392132993_112021-P.webp"
-                  class="card-img-top text-center" style="width: 75%;">
-              </div>
-              <div class="card-body p-1">
-                <h5 class="card-title">$ 294.900 <a class="text-success h6">Envio gratis</a></h5>
-                <p class="card-text">Ventilador de pared y de pie Samurai Ultra Silence Force</p>
-                <div class="btn-group" role="group">
-                  <a href="#" class="btn btn-outline-primary p-1">+ carrito</a>
-                  <a href="#" class="btn btn-outline-primary p-1">Comprar</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </div>
-
-  <!-- Footer -->
-  <footer class="footer bg-secondary text-center text-white">
     <div class="container">
-      <p class="mt-1 mb-0 py-2">&copy; 2023 .:El Cachaco:.</p>
+        <!-- barra de navegacion flotante -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light border rounded fixed-top">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/">
+                    El cachaco
+                </a>
+                <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
+                    class="navbar-toggler" data-bs-target="#navbarSupportedContent" data-bs-toggle="collapse"
+                    type="button">
+                    <span class="navbar-toggler-icon">
+                    </span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a aria-current="page" class="nav-link active" href="/">
+                                Inicio
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                Carrito
+                            </a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a aria-expanded="false" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#"
+                                id="navbarDropdown" role="button">
+                                Mi Cuenta
+                            </a>
+                            <ul aria-labelledby="navbarDropdown" class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item" href="#">
+                                        Mis compras
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">
+                                        Saldo
+                                    </a>
+                                </li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                    </hr>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">
+                                        Editar usuario
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="/politicas">
+                                        Politicas
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/login">
+                                Login
+                            </a>
+                        </li>
+                    </ul>
+                    <form class="d-flex">
+                        <input aria-label="Buscar" class="form-control me-2" placeholder="Buscar articulo"
+                            type="search">
+                        <button class="btn btn-outline-success" type="submit">
+                            Buscar
+                        </button>
+                        </input>
+                    </form>
+                </div>
+            </div>
+        </nav>
+        <!-- encabezado -->
+        <header class="bg-primary text-white text-center py-1 rounded" style="margin-top: 64px;">
+            <!-- carrusel de imagenes con un intervalo de 5 segundos -->
+            <div class="carousel carousel-dark slide" data-bs-ride="carousel" id="carouselExampleDark">
+                <div class="carousel-indicators">
+                    <button aria-current="true" aria-label="Slide 1" class="active" data-bs-slide-to="0"
+                        data-bs-target="#carouselExampleDark" type="button">
+                    </button>
+                    <button aria-label="Slide 2" data-bs-slide-to="1" data-bs-target="#carouselExampleDark"
+                        type="button">
+                    </button>
+                    <button aria-label="Slide 3" data-bs-slide-to="2" data-bs-target="#carouselExampleDark"
+                        type="button">
+                    </button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active" data-bs-interval="5000">
+                        <img alt="..." class="d-block w-100"
+                            src="https://http2.mlstatic.com/D_NQ_NP_899415-MLA71582682770_092023-OO.webp">
+                        </img>
+                    </div>
+                    <div class="carousel-item" data-bs-interval="5000">
+                        <img alt="..." class="d-block w-100"
+                            src="https://http2.mlstatic.com/D_NQ_NP_658398-MLA71631217220_092023-OO.webp">
+                        </img>
+                    </div>
+                    <div class="carousel-item" data-bs-interval="5000">
+                        <img alt="..." class="d-block w-100"
+                            src="https://http2.mlstatic.com/D_NQ_NP_776953-MLA71394576712_082023-OO.webp">
+                        </img>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" data-bs-slide="prev" data-bs-target="#carouselExampleDark"
+                    type="button">
+                    <span aria-hidden="true" class="carousel-control-prev-icon">
+                    </span>
+                    <span class="visually-hidden">
+                        Previous
+                    </span>
+                </button>
+                <button class="carousel-control-next" data-bs-slide="next" data-bs-target="#carouselExampleDark"
+                    type="button">
+                    <span aria-hidden="true" class="carousel-control-next-icon">
+                    </span>
+                    <span class="visually-hidden">
+                        Next
+                    </span>
+                </button>
+            </div>
+        </header>
+        <!-- listado de productos utilizando row y col -->
+        <section class="bg-light border mt-1 rounded" id="productos">
+            <div class="container">
+                <h2 class="text-center">
+                    Nuestros Productos
+                </h2>
+                <!-- Aquí se agregar información de los productos, utilizando el sistema de cuadrícula de Bootstrap o tarjetas -->
+                <div class="row">
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 p-1">
+                        <div class="card shadow">
+                            <div class="text-center">
+                                <img class="card-img-top text-center"
+                                    src="https://http2.mlstatic.com/D_Q_NP_848157-MLA46509924670_062021-P.webp"
+                                    style="width: 75%;">
+                                </img>
+                            </div>
+                            <div class="card-body p-1">
+                                <h5 class="card-title">
+                                    $ 699.900
+                                    <a class="text-success h6">
+                                        26% OFF
+                                    </a>
+                                </h5>
+                                <p class="card-text">
+                                    Parlante Jbl Bluetooth Charge 5 Color Red 110V/220V
+                                </p>
+                                <div class="btn-group" role="group">
+                                    <a class="btn btn-outline-primary p-1" href="#">
+                                        + carrito
+                                    </a>
+                                    <a class="btn btn-outline-primary p-1" href="#">
+                                        Comprar
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 p-1">
+                        <div class="card shadow">
+                            <div class="text-center">
+                                <img class="card-img-top text-center"
+                                    src="https://http2.mlstatic.com/D_Q_NP_707988-MLU69759752465_062023-P.webp"
+                                    style="width: 75%;">
+                                </img>
+                            </div>
+                            <div class="card-body p-1">
+                                <h5 class="card-title">
+                                    $ 400.000
+                                </h5>
+                                <p class="card-text">
+                                    Audífonos Inalámbricos Con Noise Cancelling Wf-c700n Color Negro
+                                </p>
+                                <div class="btn-group" role="group">
+                                    <a class="btn btn-outline-primary p-1" href="#">
+                                        + carrito
+                                    </a>
+                                    <a class="btn btn-outline-primary p-1" href="#">
+                                        Comprar
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 p-1">
+                        <div class="card shadow h-2">
+                            <div class="text-center">
+                                <img class="card-img-top text-center"
+                                    src="https://http2.mlstatic.com/D_Q_NP_809326-MLA46115014340_052021-P.webp"
+                                    style="width: 75%;">
+                                </img>
+                            </div>
+                            <div class="card-body p-1">
+                                <h5 class="card-title">
+                                    $ 2.414.575
+                                    <a class="text-success h6">
+                                        Envio gratis
+                                    </a>
+                                </h5>
+                                <p class="card-text">
+                                    Apple iPhone 11 (128 GB) - Blanco Super decuento
+                                </p>
+                                <div class="btn-group" role="group">
+                                    <a class="btn btn-outline-primary p-1" href="#">
+                                        + carrito
+                                    </a>
+                                    <a class="btn btn-outline-primary p-1" href="#">
+                                        Comprar
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 p-1">
+                        <div class="card shadow">
+                            <div class="text-center">
+                                <img class="card-img-top text-center"
+                                    src="https://http2.mlstatic.com/D_Q_NP_854146-MLA45739010462_042021-P.webp"
+                                    style="width: 75%;">
+                                </img>
+                            </div>
+                            <div class="card-body p-1">
+                                <h5 class="card-title">
+                                    $ 285.000
+                                    <a class="text-success h6">
+                                        Envio gratis
+                                    </a>
+                                </h5>
+                                <p class="card-text">
+                                    Amazon Echo Dot Echo Dot 4th Gen with clock con asistente virtual Alexa
+                                </p>
+                                <div class="btn-group" role="group">
+                                    <a class="btn btn-outline-primary p-1" href="#">
+                                        + carrito
+                                    </a>
+                                    <a class="btn btn-outline-primary p-1" href="#">
+                                        Comprar
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 p-1">
+                        <div class="card shadow">
+                            <div class="text-center">
+                                <img class="card-img-top text-center"
+                                    src="https://http2.mlstatic.com/D_Q_NP_772995-MCO52821182277_122022-P.webp"
+                                    style="width: 75%;">
+                                </img>
+                            </div>
+                            <div class="card-body p-1">
+                                <h5 class="card-title">
+                                    $ 107.900
+                                    <a class="text-success h6">
+                                        25% OFF
+                                    </a>
+                                </h5>
+                                <p class="card-text">
+                                    Kit De Pesas Ejercicio Mancuernas Juego De Pesas Termoforrad
+                                </p>
+                                <div class="btn-group" role="group">
+                                    <a class="btn btn-outline-primary p-1" href="#">
+                                        + carrito
+                                    </a>
+                                    <a class="btn btn-outline-primary p-1" href="#">
+                                        Comprar
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 p-1">
+                        <div class="card shadow">
+                            <div class="text-center">
+                                <img class="card-img-top text-center"
+                                    src="https://http2.mlstatic.com/D_Q_NP_894189-MCO53102272124_122022-P.webp"
+                                    style="width: 75%;">
+                                </img>
+                            </div>
+                            <div class="card-body p-1">
+                                <h5 class="card-title">
+                                    $ 399.900
+                                    <a class="text-success h6">
+                                        17% OFF
+                                    </a>
+                                </h5>
+                                <p class="card-text">
+                                    Freidora De Aire Osterde 6.8 L Ckstaf68t
+                                </p>
+                                <div class="btn-group" role="group">
+                                    <a class="btn btn-outline-primary p-1" href="#">
+                                        + carrito
+                                    </a>
+                                    <a class="btn btn-outline-primary p-1" href="#">
+                                        Comprar
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 p-1">
+                        <div class="card shadow">
+                            <div class="text-center">
+                                <img class="card-img-top text-center"
+                                    src="https://http2.mlstatic.com/D_Q_NP_840701-MCO70216300783_062023-P.webp"
+                                    style="width: 75%;">
+                                </img>
+                            </div>
+                            <div class="card-body p-1">
+                                <h5 class="card-title">
+                                    $ 189.900
+                                    <a class="text-success h6">
+                                        46% OFF
+                                    </a>
+                                </h5>
+                                <p class="card-text">
+                                    Escritorio ¡wow!, Blanco Duqueza 120x120x45
+                                </p>
+                                <div class="btn-group" role="group">
+                                    <a class="btn btn-outline-primary p-1" href="#">
+                                        + carrito
+                                    </a>
+                                    <a class="btn btn-outline-primary p-1" href="#">
+                                        Comprar
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 p-1">
+                        <div class="card shadow">
+                            <div class="text-center">
+                                <img class="card-img-top text-center"
+                                    src="https://http2.mlstatic.com/D_Q_NP_650510-MLA48392132993_112021-P.webp"
+                                    style="width: 75%;">
+                                </img>
+                            </div>
+                            <div class="card-body p-1">
+                                <h5 class="card-title">
+                                    $ 294.900
+                                    <a class="text-success h6">
+                                        Envio gratis
+                                    </a>
+                                </h5>
+                                <p class="card-text">
+                                    Ventilador de pared y de pie Samurai Ultra Silence Force
+                                </p>
+                                <div class="btn-group" role="group">
+                                    <a class="btn btn-outline-primary p-1" href="#">
+                                        + carrito
+                                    </a>
+                                    <a class="btn btn-outline-primary p-1" href="#">
+                                        Comprar
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
-  </footer>
-
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-    crossorigin="anonymous"></script>
+    <!-- Footer -->
+    <footer class="footer bg-secondary text-center text-white">
+        <div class="container">
+            <p class="mt-1 mb-0 py-2">
+                © 2023 .:El Cachaco:.
+            </p>
+        </div>
+    </footer>
+    <!-- Bootstrap JS -->
+    <script crossorigin="anonymous" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js">
+        </script>
 </body>
 
 </html>

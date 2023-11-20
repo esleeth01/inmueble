@@ -1,6 +1,5 @@
 // Importa la biblioteca sqlite3 y obtiene la interfaz verbose
 const sqlite3 = require('sqlite3').verbose();
-
 // Definición de la clase Database
 class Database {
     // Constructor de la clase que recibe la ruta de la base de datos
@@ -10,7 +9,6 @@ class Database {
         // Llama al método init para inicializar la base de datos (crear tabla si no existe)
         this.init();
     }
-
     // Método para inicializar la base de datos
     init() {
         // Crea la tabla 'usuarios' si no existe
@@ -25,7 +23,6 @@ class Database {
             )
         `);
     }
-
     // Método para insertar un nuevo usuario en la tabla 'usuarios'
     insertUsuario(nombres, apellidos, usuario, correo, contraseña) {
         // Prepara la consulta SQL con placeholders (?)
@@ -38,12 +35,10 @@ class Database {
         // Finaliza la declaración (libera recursos)
         stmt.finalize();
     }
-
     // Método para cerrar la conexión a la base de datos
     close() {
         this.db.close();
     }
 }
-
 // Exporta la clase Database para que pueda ser utilizada en otros módulos
 module.exports = Database;
