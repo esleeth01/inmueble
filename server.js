@@ -11,7 +11,7 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
 // Puerto en el que el servidor escuchará
-const httpPort = 80;
+const httpPort = 3000;
 
 // Configurar la carpeta 'assets' para que sea estática
 app.use('/assets', express.static(path.join(__dirname, 'assets'), { extensions: ['html'] }), express.static(path.join(__dirname, 'node_modules')));
