@@ -44,7 +44,6 @@ app.get('/politicas', (req, res) => {
 // Ruta POST para registrar un nuevo usuario
 app.post('/registrar', async (req, res) => {
   try {
-    console.log(req.body);
     // Extrae los datos del cuerpo de la solicitud
     const {
       userNombres,
