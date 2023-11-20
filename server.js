@@ -33,7 +33,25 @@ app.get('/politicas', (req, res) => {
   res.render('politicas');
 });
 
+// Ruta para manejar el registro de usuarios
+app.post('/registrar', (req, res) => {
+  const { userNombres, userApellido, usuario, correo, contraseña } = req.body;
+
+  // Insertar un nuevo usuario en la base de datos utilizando la clase Database
+  db.insertUsuario(userNombres, userApellido, usuario, correo, contraseña);
+
+  // Redirigir al usuario después del registro (puedes cambiar la ruta según tus necesidades)
+  res.redirect('/login');
+});
+
 // Crear el servidor HTTP y escuchar en el puerto especificado
 const httpServer = app.listen(httpPort, () => {
   console.log(`Servidor HTTP escuchando en http://localhost:${httpPort}`);
+});
+
+// Maneja la señal de cierre para cerrar la conexión a la base de datos
+process.on('SIGINT', () => {
+  db.close();
+  httpServer.close();
+  process.exit();
 });
