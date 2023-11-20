@@ -21,7 +21,7 @@ const indexRoutes = require('./routes/indexRoutes');
 const userRoutes = require('./routes/userRoutes');
 
 app.use('/', indexRoutes);
-app.use('/users', userRoutes);  // Puedes cambiar '/users' por el prefijo que desees
+app.use('/users', userRoutes);
 
 const httpServer = app.listen(httpPort, () => {
   console.log(`Servidor HTTP escuchando en http://localhost:${httpPort}`);
