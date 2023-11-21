@@ -1,12 +1,15 @@
+// ./server.js
+
 // Importa los módulos necesarios
 const express = require('express');
 const path = require('path');
 const Database = require('./db/db');
+const bcrypt = require('bcrypt');
 
 // Crea una instancia de Express
 const app = express();
 
-// middleware para parsear JSON y datos codificados en la URL
+// middleware para parsear JSON y datos codificados en la URL (no entiendo para que sirve, pero en los foros decian que se debia hacer asi)
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -15,7 +18,7 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
 // Puerto en el que el servidor escuchará
-const httpPort = 80;
+const httpPort = 3000;
 
 // Configura la carpeta 'assets' como estática para servir archivos HTML y archivos estáticos desde 'node_modules'
 app.use('/assets', express.static(path.join(__dirname, 'assets'), {
@@ -93,17 +96,28 @@ app.post('/login', async (req, res) => {
     // Consultar la base de datos para verificar las credenciales
     const usuarioRegistrado = await db.getUsuarioByUsuario(usuario);
 
-    if (usuarioRegistrado && usuarioRegistrado.pass === contrasena) {
-      // Credenciales correctas
-      res.json({
-        success: true,
-        message: 'Inicio de sesión exitoso'
-      });
+    if (usuarioRegistrado) {
+      // Verificar la contraseña utilizando bcrypt.compare
+      const passwordMatch = await bcrypt.compare(contrasena, usuarioRegistrado.pass);
+
+      if (passwordMatch) {
+        // Credenciales correctas
+        res.json({
+          success: true,
+          message: 'Inicio de sesión exitoso'
+        });
+      } else {
+        // Credenciales incorrectas
+        res.json({
+          success: false,
+          message: 'Credenciales incorrectas'
+        });
+      }
     } else {
-      // Credenciales incorrectas
+      // Usuario no encontrado
       res.json({
         success: false,
-        message: 'Credenciales incorrectas'
+        message: 'Usuario no encontrado'
       });
     }
   } catch (error) {
@@ -114,13 +128,61 @@ app.post('/login', async (req, res) => {
   }
 });
 
-
 // Crea el servidor HTTP y escucha en el puerto especificado
 const httpServer = app.listen(httpPort, () => {
   console.log(`Servidor HTTP escuchando en http://localhost:${httpPort}`);
 });
 
 // Maneja la señal de cierre para cerrar la conexión a la base de datos
-process.on('SIGINT', () => {
-  db.close();
+process.on('SIGINT', async () => {
+  try {
+    console.log('Cerrando conexión a la base de datos...');
+    await db.close();
+    console.log('Conexión cerrada. Saliendo del servidor.');
+    process.exit(0);
+  } catch (error) {
+    console.error('Error al cerrar la conexión a la base de datos:', error);
+    process.exit(1);
+  }
+});
+
+// Maneja otras señales de cierre para cerrar la conexión a la base de datos
+process.on('SIGTERM', async () => {
+  try {
+    console.log('Cerrando conexión a la base de datos debido a SIGTERM...');
+    await db.close();
+    console.log('Conexión cerrada. Saliendo del servidor debido a SIGTERM.');
+    process.exit(0);
+  } catch (error) {
+    console.error('Error al cerrar la conexión a la base de datos:', error);
+    process.exit(1);
+  }
+});
+
+// Asegura que la conexión a la base de datos se cierre al cerrar la aplicación de manera inesperada
+process.on('unhandledRejection', async (reason, promise) => {
+  console.error('Unhandled Rejection at:', promise, 'reason:', reason);
+  try {
+    console.log('Cerrando conexión a la base de datos debido a unhandledRejection...');
+    await db.close();
+    console.log('Conexión cerrada. Saliendo del servidor debido a unhandledRejection.');
+    process.exit(1);
+  } catch (error) {
+    console.error('Error al cerrar la conexión a la base de datos:', error);
+    process.exit(1);
+  }
+});
+
+// Asegura que la conexión a la base de datos se cierre al cerrar la aplicación de manera inesperada
+process.on('uncaughtException', async (error) => {
+  console.error('Uncaught Exception:', error);
+  try {
+    console.log('Cerrando conexión a la base de datos debido a uncaughtException...');
+    await db.close();
+    console.log('Conexión cerrada. Saliendo del servidor debido a uncaughtException.');
+    process.exit(1);
+  } catch (error) {
+    console.error('Error al cerrar la conexión a la base de datos:', error);
+    process.exit(1);
+  }
 });

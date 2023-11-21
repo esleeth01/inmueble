@@ -61,6 +61,7 @@ function loginUsuario() {
         } else if (data.success) {
             alert('Inicio de sesión exitoso: ' + data.message);
             // Puedes redirigir al usuario a otra página o realizar otras acciones según sea necesario
+            window.location.href = '../';
         } else {
             alert('Credenciales incorrectas');
         }

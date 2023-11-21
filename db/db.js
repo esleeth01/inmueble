@@ -1,7 +1,6 @@
-// Importa la biblioteca sqlite3 para interactuar con la base de datos SQLite
-const sqlite3 = require('sqlite3').verbose();
-// Importa la biblioteca bcrypt para el hash seguro de contraseñas
-const bcrypt = require('bcrypt');
+// ./db/db.js
+const sqlite3 = require('sqlite3').verbose(); // Importa la biblioteca sqlite3 para interactuar con la base de datos SQLite
+const bcrypt = require('bcrypt'); // Importa la biblioteca bcrypt para el hash seguro de contraseñas
 
 // Definición de la clase Database para interactuar con la base de datos
 class Database {

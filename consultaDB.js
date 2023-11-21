@@ -9,7 +9,7 @@ if (!tabla) {
 }
 
 // Conecta a la base de datos SQLite
-const dbPath = './db/el_cachaco.db'; // Reemplaza con la ruta a tu base de datos
+const dbPath = './db/el_cachaco.db';
 const db = new sqlite3.Database(dbPath);
 
 // Realiza la consulta y muestra los resultados
