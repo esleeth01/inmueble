@@ -1,3 +1,4 @@
+// assets/js/scriptLogin.js
 function registrarUsuario() {
     // Obtener valores de los campos del formulario
     var nombres = document.getElementById('userNombresRegistro').value;
